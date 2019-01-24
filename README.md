@@ -1,8 +1,5 @@
 # GraphQLSample
 ## Hello GraphQL Sample
-
-
- ⚛️ React.js 
- 🚀 Apollo 
- 🥑 Node.js 
- 🐘 PostgreSQL
+![Alt Text](https://github.com/ofuen/GraphQLSample/blob/master/img/helloworld.gif)
+***
+ ⚛️ React.js | 🚀 Apollo | 🥑 Node.js
