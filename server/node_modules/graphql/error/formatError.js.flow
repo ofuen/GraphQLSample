@@ -1,22 +1,17 @@
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @flow strict
- */
+// @flow strict
 
-import invariant from '../jsutils/invariant';
-import { type GraphQLError } from './GraphQLError';
+import devAssert from '../jsutils/devAssert';
+
 import { type SourceLocation } from '../language/location';
+
+import { type GraphQLError } from './GraphQLError';
 
 /**
  * Given a GraphQLError, format it according to the rules described by the
  * Response Format, Errors section of the GraphQL Specification.
  */
 export function formatError(error: GraphQLError): GraphQLFormattedError {
-  invariant(error, 'Received null or undefined error.');
+  devAssert(error, 'Received null or undefined error.');
   const message = error.message || 'An unknown error occurred.';
   const locations = error.locations;
   const path = error.path;
@@ -31,5 +26,5 @@ export type GraphQLFormattedError = {|
   +message: string,
   +locations: $ReadOnlyArray<SourceLocation> | void,
   +path: $ReadOnlyArray<string | number> | void,
-  +extensions?: { [key: string]: mixed },
+  +extensions?: { [key: string]: mixed, ... },
 |};
